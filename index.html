@@ -207,14 +207,16 @@ background:#22c55e20;
 border-color:#22c55e55;
 }
 
+/* BUTTON DESIGN */
+
 .join-btn{
 width:100%;
 margin-top:16px;
-border:0;
+border:1px solid rgba(255,255,255,.15);
 border-radius:12px;
-padding:14px 12px;
-font-size:14px;
-font-weight:800;
+padding:15px 12px;
+font-size:15px;
+font-weight:900;
 color:white;
 background:linear-gradient(100deg,var(--accent),var(--accent2));
 cursor:pointer;
@@ -225,20 +227,28 @@ justify-content:center;
 gap:9px;
 }
 
+/* LOCKED BUTTON: TEXT REMAINS CLEAR */
+
+.join-btn.locked{
+filter:none;
+opacity:1;
+color:#ffffff;
+font-weight:900;
+text-shadow:0 1px 3px rgba(0,0,0,.4);
+box-shadow:0 5px 18px rgba(0,0,0,.2);
+}
+
 .join-btn:hover{
 transform:translateY(-1px);
 filter:brightness(1.08);
 }
 
-.join-btn.locked{
-filter:blur(2.2px) grayscale(.35);
-opacity:.52;
-}
-
 .join-btn.unlocked{
 filter:none;
 opacity:1;
-box-shadow:0 8px 25px rgba(34,197,94,.18);
+background:linear-gradient(100deg,#22c55e,#16a34a);
+border-color:#4ade80;
+box-shadow:0 8px 25px rgba(34,197,94,.2);
 }
 
 .join-btn:disabled{
@@ -397,6 +407,8 @@ margin:0;
 
 <section class="groups">
 
+<!-- GROUP 1 -->
+
 <article class="group-card" style="--accent:#38bdf8;--accent2:#2563eb">
 <div class="card-top">
 <div class="platform-icon">➤</div>
@@ -406,7 +418,11 @@ margin:0;
 </div>
 <span class="status" id="status-0">🔒 লক করা</span>
 </div>
-<button class="join-btn locked" id="btn-0" onclick="handleGroup(0)">🔒 গ্রুপে যোগ দিতে ক্লিক করুন</button>
+
+<button class="join-btn locked" id="btn-0" onclick="handleGroup(0)">
+🔒 গ্রুপে যোগ দিতে ক্লিক করুন
+</button>
+
 <div class="progress-area" id="progress-0">
 <div class="progress-label">
 <span id="label-0">অপেক্ষা করুন...</span>
@@ -415,6 +431,8 @@ margin:0;
 <div class="track"><div class="bar" id="bar-0"></div></div>
 </div>
 </article>
+
+<!-- GROUP 2 -->
 
 <article class="group-card" style="--accent:#38bdf8;--accent2:#2563eb">
 <div class="card-top">
@@ -425,7 +443,11 @@ margin:0;
 </div>
 <span class="status" id="status-1">🔒 লক করা</span>
 </div>
-<button class="join-btn locked" id="btn-1" onclick="handleGroup(1)">🔒 গ্রুপে যোগ দিতে ক্লিক করুন</button>
+
+<button class="join-btn locked" id="btn-1" onclick="handleGroup(1)">
+🔒 গ্রুপে যোগ দিতে ক্লিক করুন
+</button>
+
 <div class="progress-area" id="progress-1">
 <div class="progress-label">
 <span id="label-1">অপেক্ষা করুন...</span>
@@ -434,6 +456,8 @@ margin:0;
 <div class="track"><div class="bar" id="bar-1"></div></div>
 </div>
 </article>
+
+<!-- GROUP 3 -->
 
 <article class="group-card" style="--accent:#38bdf8;--accent2:#2563eb">
 <div class="card-top">
@@ -444,7 +468,11 @@ margin:0;
 </div>
 <span class="status" id="status-2">🔒 লক করা</span>
 </div>
-<button class="join-btn locked" id="btn-2" onclick="handleGroup(2)">🔒 গ্রুপে যোগ দিতে ক্লিক করুন</button>
+
+<button class="join-btn locked" id="btn-2" onclick="handleGroup(2)">
+🔒 গ্রুপে যোগ দিতে ক্লিক করুন
+</button>
+
 <div class="progress-area" id="progress-2">
 <div class="progress-label">
 <span id="label-2">অপেক্ষা করুন...</span>
@@ -453,6 +481,8 @@ margin:0;
 <div class="track"><div class="bar" id="bar-2"></div></div>
 </div>
 </article>
+
+<!-- WHATSAPP -->
 
 <article class="group-card" style="--accent:#4ade80;--accent2:#16a34a">
 <div class="card-top">
@@ -463,7 +493,11 @@ margin:0;
 </div>
 <span class="status" id="status-3">🔒 লক করা</span>
 </div>
-<button class="join-btn locked" id="btn-3" onclick="handleGroup(3)">🔒 গ্রুপে যোগ দিতে ক্লিক করুন</button>
+
+<button class="join-btn locked" id="btn-3" onclick="handleGroup(3)">
+🔒 গ্রুপে যোগ দিতে ক্লিক করুন
+</button>
+
 <div class="progress-area" id="progress-3">
 <div class="progress-label">
 <span id="label-3">অপেক্ষা করুন...</span>
@@ -476,7 +510,9 @@ margin:0;
 </section>
 
 <section class="how">
+
 <h3>কীভাবে গ্রুপে যোগ দেবেন?</h3>
+
 <div class="steps">
 
 <div class="step">
@@ -508,35 +544,33 @@ margin:0;
 
 <script>
 
-/* GROUP LINKS */
+/* GROUP AND SPONSOR LINKS */
 
 const communities = [
-
 {
 group:"https://t.me/viralvideo8909",
 sponsor:"https://uplcm.com/4/9449357"
 },
-
 {
 group:"https://t.me/viralxvideo22",
 sponsor:"https://uplcm.com/4/12285776"
 },
-
 {
 group:"https://t.me/pompovideo",
 sponsor:"https://asiafilm.org/4/5872a97cbdcb63d702f41bd2e431ec9f"
 },
-
 {
 group:"https://whatsapp.com/channel/0029VbDoV0R1iUxeIvlGda2Q",
 sponsor:"https://auctionr.org/4/59505a5df038b6027ac32f32812420ba"
 }
-
 ];
 
 const WAIT_SECONDS = 12;
 
-/* EVERY FRESH PAGE LOAD STARTS LOCKED */
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+/* INITIAL STATE */
 
 let states = communities.map(() => ({
 unlocked:false,
@@ -546,11 +580,7 @@ timer:null,
 sponsorTab:null
 }));
 
-document.getElementById("year").textContent =
-new Date().getFullYear();
-
-
-/* UNLOCK GROUP */
+/* UNLOCK */
 
 function finishGroup(index){
 
@@ -562,6 +592,7 @@ state.unlocked = true;
 state.pending = false;
 
 clearInterval(state.timer);
+state.timer = null;
 
 const button = document.getElementById(`btn-${index}`);
 const status = document.getElementById(`status-${index}`);
@@ -569,7 +600,6 @@ const status = document.getElementById(`status-${index}`);
 button.disabled = false;
 button.classList.remove("locked");
 button.classList.add("unlocked");
-
 button.innerHTML = "✓ এখনই গ্রুপে যোগ দিন";
 
 status.innerHTML = "✓ আনলক হয়েছে";
@@ -585,12 +615,13 @@ document.getElementById(`bar-${index}`).style.width = "100%";
 
 }
 
-
-/* RESET AFTER EARLY RETURN */
+/* RESET ATTEMPT */
 
 function resetAttempt(index){
 
 const state = states[index];
+
+if(!state.pending) return;
 
 state.pending = false;
 state.visitStartedAt = null;
@@ -613,38 +644,13 @@ document.getElementById(`bar-${index}`).style.width = "0%";
 
 }
 
-
-/* UPDATE TIMER WHILE SPONSOR TAB IS ACTIVE */
-
-function updateCountdown(index){
-
-const state = states[index];
-
-if(!state.pending || state.visitStartedAt === null) return;
-
-const elapsed = (Date.now() - state.visitStartedAt) / 1000;
-
-const remaining = Math.max(0, WAIT_SECONDS - elapsed);
-
-document.getElementById(`count-${index}`).textContent =
-Math.ceil(remaining) + " সেকেন্ড";
-
-document.getElementById(`bar-${index}`).style.width =
-Math.min(100,(elapsed / WAIT_SECONDS) * 100) + "%";
-
-if(remaining <= 0){
-state.pending = false;
-finishGroup(index);
-}
-
-}
-
-
-/* START A NEW SPONSOR VISIT */
+/* START COUNTDOWN */
 
 function startVisit(index){
 
 const state = states[index];
+
+if(state.pending || state.unlocked) return;
 
 state.pending = true;
 state.visitStartedAt = Date.now();
@@ -660,8 +666,6 @@ document.getElementById(`progress-${index}`)
 document.getElementById(`label-${index}`).textContent =
 "স্পন্সর পেজে থাকুন...";
 
-updateCountdown(index);
-
 state.timer = setInterval(() => {
 
 if(document.hidden){
@@ -674,32 +678,49 @@ resetAttempt(index);
 
 }
 
+/* TIMER */
 
-/* GROUP BUTTON CLICK */
+function updateCountdown(index){
+
+const state = states[index];
+
+if(!state.pending || !state.visitStartedAt) return;
+
+const elapsed =
+(Date.now() - state.visitStartedAt) / 1000;
+
+const remaining = Math.max(0,WAIT_SECONDS-elapsed);
+
+document.getElementById(`count-${index}`).textContent =
+Math.ceil(remaining) + " সেকেন্ড";
+
+document.getElementById(`bar-${index}`).style.width =
+Math.min(100,(elapsed/WAIT_SECONDS)*100) + "%";
+
+if(remaining <= 0){
+finishGroup(index);
+}
+
+}
+
+/* CLICK BUTTON */
 
 function handleGroup(index){
 
 const state = states[index];
 
-/* UNLOCKED */
+/* ALREADY UNLOCKED */
 
 if(state.unlocked){
-
 window.location.href = communities[index].group;
-
 return;
-
 }
 
-/* WAITING FOR CURRENT ATTEMPT */
+/* WAITING */
 
-if(state.pending){
+if(state.pending) return;
 
-return;
-
-}
-
-/* OPEN SPONSOR TAB */
+/* OPEN SPONSOR */
 
 const sponsorTab = window.open(
 communities[index].sponsor,
@@ -712,15 +733,12 @@ document.getElementById(`progress-${index}`)
 .classList.add("active");
 
 document.getElementById(`label-${index}`).textContent =
-"পপ-আপ ব্লক হয়েছে। অনুমতি দিয়ে আবার চেষ্টা করুন।";
+"পপ-আপ ব্লক হয়েছে। ব্রাউজারে অনুমতি দিয়ে আবার চেষ্টা করুন।";
 
 return;
-
 }
 
 state.sponsorTab = sponsorTab;
-
-/* START ONLY WHEN SPONSOR TAB TAKES FOCUS */
 
 document.getElementById(`progress-${index}`)
 .classList.add("active");
@@ -730,16 +748,15 @@ document.getElementById(`label-${index}`).textContent =
 
 }
 
+/* TAB VISIBILITY */
 
-/* DETECT WHEN USER LEAVES MAIN PAGE */
-
-document.addEventListener("visibilitychange",() => {
+document.addEventListener("visibilitychange",function(){
 
 if(document.hidden){
 
-/* START TIMER FOR ACTIVE SPONSOR ATTEMPTS */
+/* USER LEFT MAIN TAB */
 
-states.forEach((state,index) => {
+states.forEach((state,index)=>{
 
 if(!state.unlocked && !state.pending && state.sponsorTab){
 
@@ -751,7 +768,7 @@ startVisit(index);
 state.sponsorTab = null;
 }
 
-}catch(e){
+}catch(error){
 
 state.sponsorTab = null;
 
@@ -763,25 +780,19 @@ state.sponsorTab = null;
 
 }else{
 
-/* USER RETURNED TO MAIN PAGE */
+/* USER RETURNED TO MAIN TAB */
 
-states.forEach((state,index) => {
-
-const state = states[index];
+states.forEach((state,index)=>{
 
 if(state.pending){
 
 const elapsed =
-(Date.now() - state.visitStartedAt) / 1000;
+(Date.now()-state.visitStartedAt)/1000;
 
 if(elapsed >= WAIT_SECONDS){
-
 finishGroup(index);
-
 }else{
-
 resetAttempt(index);
-
 }
 
 }
@@ -794,15 +805,12 @@ state.sponsorTab = null;
 
 });
 
-
-/* BACK/FORWARD CACHE RESET */
+/* PAGE RESTORE */
 
 window.addEventListener("pageshow",function(event){
 
 if(event.persisted){
-
 window.location.reload();
-
 }
 
 });
