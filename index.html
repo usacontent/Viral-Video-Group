@@ -1,0 +1,436 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090d18">
+<meta name="description" content="সকল ভাইরাল ভিডিও পেতে আমাদের Telegram ও WhatsApp গ্রুপে যোগ দিন।">
+<title>Viral Video Hub | ভাইরাল ভিডিও</title>
+
+<style>
+:root{
+--bg:#090d18;
+--panel:#111a2b;
+--text:#f5f7ff;
+--muted:#a9b4ca;
+--line:rgba(255,255,255,.09);
+--purple:#8b5cf6;
+--cyan:#22d3ee;
+--green:#22c55e;
+}
+*{box-sizing:border-box}
+body{
+margin:0;min-height:100vh;color:var(--text);
+font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+background:
+radial-gradient(ellipse at 12% 0%,rgba(124,58,237,.22),transparent 36%),
+radial-gradient(ellipse at 95% 25%,rgba(34,211,238,.13),transparent 32%),var(--bg);
+display:flex;flex-direction:column;
+}
+.wrap{width:min(100% - 32px,760px);margin:auto}
+header{padding:25px 0 12px;display:flex;justify-content:center}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800}
+.brand-icon{
+width:40px;height:40px;border-radius:13px;
+display:grid;place-items:center;
+background:linear-gradient(135deg,var(--purple),#4f46e5);
+font-size:20px;
+}
+main{flex:1;padding:36px 0 44px}
+.hero{text-align:center;margin:0 auto 28px;max-width:620px}
+.eyebrow{
+display:inline-flex;align-items:center;gap:7px;
+padding:7px 12px;border:1px solid var(--line);
+border-radius:99px;color:#c4b5fd;
+background:#8b5cf615;font-size:12px;font-weight:750;
+}
+.dot{width:7px;height:7px;background:#4ade80;border-radius:50%}
+h1{font-size:clamp(31px,7vw,52px);line-height:1.08;margin:19px 0 13px}
+h1 span{
+background:linear-gradient(90deg,#c4b5fd,#67e8f9);
+-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.sub{color:var(--muted);font-size:15px;line-height:1.7}
+.notice{
+margin:23px auto 0;padding:12px 14px;max-width:520px;
+border:1px solid rgba(34,211,238,.18);
+background:rgba(34,211,238,.06);
+border-radius:13px;color:#c6f5ff;font-size:12px;line-height:1.7;
+}
+.section-title{
+font-size:13px;color:#cbd5e1;
+letter-spacing:1.5px;font-weight:800;margin:30px 0 13px;
+}
+.groups{display:grid;gap:13px}
+.group-card{
+padding:17px;border:1px solid var(--line);
+border-radius:19px;
+background:linear-gradient(145deg,#162238,#0f172a);
+box-shadow:0 18px 55px rgba(0,0,0,.35);
+position:relative;overflow:hidden;
+}
+.group-card:before{
+content:"";position:absolute;inset:0 auto 0 0;
+width:3px;background:var(--accent);
+}
+.card-top{display:flex;align-items:center;gap:13px}
+.platform-icon{
+width:47px;height:47px;flex:0 0 47px;
+border-radius:15px;display:grid;place-items:center;
+background:color-mix(in srgb,var(--accent) 17%,transparent);
+color:var(--accent);font-size:22px;font-weight:900;
+}
+.details{min-width:0;flex:1}
+.details h2{font-size:16px;margin:0 0 4px}
+.details p{font-size:12px;color:var(--muted);margin:0}
+.status{
+font-size:10px;font-weight:800;color:#fbbf24;
+background:#f59e0b16;border:1px solid #f59e0b35;
+border-radius:99px;padding:6px 8px;white-space:nowrap;
+}
+.join-btn{
+width:100%;margin-top:15px;border:0;border-radius:12px;
+padding:13px 15px;font-size:14px;font-weight:800;color:white;
+background:linear-gradient(100deg,var(--accent),var(--accent2));
+cursor:pointer;transition:.2s;
+display:flex;align-items:center;justify-content:center;gap:9px;
+}
+.join-btn:hover{transform:translateY(-1px);filter:brightness(1.08)}
+.join-btn.locked{filter:blur(2.2px) grayscale(.35);opacity:.52}
+.join-btn.unlocked{filter:none;opacity:1}
+.join-btn:disabled{cursor:default}
+.progress-area{display:none;margin-top:12px}
+.progress-area.active{display:block}
+.progress-label{
+display:flex;justify-content:space-between;
+color:#cbd5e1;font-size:11px;margin-bottom:7px;
+}
+.track{height:5px;border-radius:99px;background:#ffffff15;overflow:hidden}
+.bar{
+height:100%;width:0%;border-radius:99px;
+background:linear-gradient(90deg,var(--purple),var(--cyan));
+transition:width .3s;
+}
+.small-note{font-size:11px;color:var(--muted);line-height:1.7;margin:11px 2px 0}
+.how{
+margin-top:24px;padding:17px;border:1px solid var(--line);
+border-radius:17px;background:#ffffff05;
+}
+.how h3{font-size:14px;margin:0 0 12px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.step{font-size:11px;color:var(--muted);line-height:1.6}
+.step b{display:block;color:#e5e7eb;font-size:12px;margin-bottom:4px}
+.step-num{
+width:23px;height:23px;border-radius:8px;
+background:#8b5cf626;color:#c4b5fd;
+display:grid;place-items:center;font-size:11px;
+font-weight:800;margin-bottom:8px;
+}
+footer{text-align:center;color:#77839a;font-size:11px;padding:20px 0 27px}
+@media(max-width:480px){
+main{padding-top:26px}
+.group-card{padding:14px}
+.status{font-size:9px;padding:5px 7px}
+.steps{grid-template-columns:1fr;gap:13px}
+.step{display:grid;grid-template-columns:23px 1fr;column-gap:9px}
+.step-num{grid-row:span 2;margin:0}
+.step b{margin:0}
+}
+</style>
+</head>
+
+<body>
+
+<header class="wrap">
+<div class="brand">
+<div class="brand-icon">▶</div>
+<span>VIRAL VIDEO HUB</span>
+</div>
+</header>
+
+<main class="wrap">
+
+<section class="hero">
+<div class="eyebrow">
+<span class="dot"></span>
+আমাদের ভিডিও কমিউনিটি
+</div>
+
+<h1>সকল <span>ভাইরাল ভিডিও</span> পেতে</h1>
+
+<p class="sub">
+নতুন নতুন ভাইরাল ভিডিও পেতে আমাদের Telegram ও WhatsApp গ্রুপে যোগ দিন। আপনার পছন্দের গ্রুপ নির্বাচন করুন।
+</p>
+
+<div class="notice">
+গ্রুপে যোগ দিতে নিচের পছন্দের বাটনে ক্লিক করুন। প্রথমে একটি স্পন্সর পেজ খুলবে। ১২ সেকেন্ড অপেক্ষা করার পর Join Now বাটনে ক্লিক করে সরাসরি গ্রুপে যোগ দিন।
+</div>
+</section>
+
+<div class="section-title">আমাদের গ্রুপসমূহ</div>
+
+<section class="groups">
+
+<!-- Telegram 1 -->
+<article class="group-card" style="--accent:#38bdf8;--accent2:#2563eb">
+<div class="card-top">
+<div class="platform-icon">➤</div>
+<div class="details">
+<h2>টেলিগ্রাম গ্রুপ ০১</h2>
+<p>আমাদের প্রথম Telegram গ্রুপে যোগ দিন</p>
+</div>
+<span class="status" id="status-0">🔒 লক করা</span>
+</div>
+<button class="join-btn locked" id="btn-0" onclick="handleGroup(0)">
+🔒 গ্রুপে যোগ দিতে ক্লিক করুন
+</button>
+<div class="progress-area" id="progress-0">
+<div class="progress-label">
+<span id="label-0">অপেক্ষা করুন...</span>
+<b id="count-0">১২ সেকেন্ড</b>
+</div>
+<div class="track"><div class="bar" id="bar-0"></div></div>
+</div>
+</article>
+
+<!-- Telegram 2 -->
+<article class="group-card" style="--accent:#38bdf8;--accent2:#2563eb">
+<div class="card-top">
+<div class="platform-icon">➤</div>
+<div class="details">
+<h2>টেলিগ্রাম গ্রুপ ০২</h2>
+<p>আমাদের দ্বিতীয় Telegram গ্রুপে যোগ দিন</p>
+</div>
+<span class="status" id="status-1">🔒 লক করা</span>
+</div>
+<button class="join-btn locked" id="btn-1" onclick="handleGroup(1)">
+🔒 গ্রুপে যোগ দিতে ক্লিক করুন
+</button>
+<div class="progress-area" id="progress-1">
+<div class="progress-label">
+<span id="label-1">অপেক্ষা করুন...</span>
+<b id="count-1">১২ সেকেন্ড</b>
+</div>
+<div class="track"><div class="bar" id="bar-1"></div></div>
+</div>
+</article>
+
+<!-- Telegram 3 -->
+<article class="group-card" style="--accent:#38bdf8;--accent2:#2563eb">
+<div class="card-top">
+<div class="platform-icon">➤</div>
+<div class="details">
+<h2>টেলিগ্রাম গ্রুপ ০৩</h2>
+<p>আমাদের তৃতীয় Telegram গ্রুপে যোগ দিন</p>
+</div>
+<span class="status" id="status-2">🔒 লক করা</span>
+</div>
+<button class="join-btn locked" id="btn-2" onclick="handleGroup(2)">
+🔒 গ্রুপে যোগ দিতে ক্লিক করুন
+</button>
+<div class="progress-area" id="progress-2">
+<div class="progress-label">
+<span id="label-2">অপেক্ষা করুন...</span>
+<b id="count-2">১২ সেকেন্ড</b>
+</div>
+<div class="track"><div class="bar" id="bar-2"></div></div>
+</div>
+</article>
+
+<!-- WhatsApp -->
+<article class="group-card" style="--accent:#4ade80;--accent2:#16a34a">
+<div class="card-top">
+<div class="platform-icon">◉</div>
+<div class="details">
+<h2>WhatsApp চ্যানেল</h2>
+<p>আমাদের WhatsApp চ্যানেলে যুক্ত থাকুন</p>
+</div>
+<span class="status" id="status-3">🔒 লক করা</span>
+</div>
+<button class="join-btn locked" id="btn-3" onclick="handleGroup(3)">
+🔒 গ্রুপে যোগ দিতে ক্লিক করুন
+</button>
+<div class="progress-area" id="progress-3">
+<div class="progress-label">
+<span id="label-3">অপেক্ষা করুন...</span>
+<b id="count-3">১২ সেকেন্ড</b>
+</div>
+<div class="track"><div class="bar" id="bar-3"></div></div>
+</div>
+</article>
+
+</section>
+
+<p class="small-note">
+বিঃদ্রঃ স্পন্সর পেজ খুললে ব্যক্তিগত তথ্য প্রদান বা বিজ্ঞাপনে ক্লিক করার প্রয়োজন নেই। কাউন্টডাউন শেষ হলে গ্রুপে যোগ দিতে পারবেন।
+</p>
+
+<section class="how">
+<h3>কীভাবে গ্রুপে যোগ দেবেন?</h3>
+<div class="steps">
+
+<div class="step">
+<span class="step-num">১</span>
+<b>গ্রুপ নির্বাচন করুন</b>
+<span>আপনার পছন্দের Telegram অথবা WhatsApp বাটনে ক্লিক করুন।</span>
+</div>
+
+<div class="step">
+<span class="step-num">২</span>
+<b>১২ সেকেন্ড অপেক্ষা করুন</b>
+<span>স্পন্সর পেজ নতুন ট্যাবে খুলবে। কাউন্টডাউন শেষ হওয়া পর্যন্ত অপেক্ষা করুন।</span>
+</div>
+
+<div class="step">
+<span class="step-num">৩</span>
+<b>গ্রুপে যোগ দিন</b>
+<span>আগের পেজে ফিরে Join Now বাটনে ক্লিক করুন।</span>
+</div>
+
+</div>
+</section>
+
+</main>
+
+<footer class="wrap">
+© <span id="year"></span> Viral Video Hub | সর্বস্বত্ব সংরক্ষিত
+</footer>
+
+<script>
+
+const communities = [
+
+{
+group:"https://t.me/viralvideo8909",
+sponsor:"https://uplcm.com/4/9449357"
+},
+
+{
+group:"https://t.me/viralxvideo22",
+sponsor:"https://uplcm.com/4/12285776"
+},
+
+{
+group:"https://t.me/pompovideo",
+sponsor:"https://asiafilm.org/4/5872a97cbdcb63d702f41bd2e431ec9f"
+},
+
+{
+group:"https://whatsapp.com/channel/0029VbDoV0R1iUxeIvlGda2Q",
+sponsor:"https://auctionr.org/4/59505a5df038b6027ac32f32812420ba"
+}
+
+];
+
+const WAIT_SECONDS = 12;
+
+const states = communities.map(() => ({
+unlocked:false,
+running:false,
+timer:null,
+startedAt:0
+}));
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+function handleGroup(index){
+
+const state = states[index];
+const button = document.getElementById(`btn-${index}`);
+
+if(state.unlocked){
+
+window.open(
+communities[index].group,
+"_blank",
+"noopener,noreferrer"
+);
+
+return;
+}
+
+if(state.running) return;
+
+// Sponsor page opens from the button click
+const sponsorTab = window.open(
+communities[index].sponsor,
+"_blank",
+"noopener,noreferrer"
+);
+
+if(!sponsorTab){
+
+document.getElementById(`label-${index}`).textContent =
+"পপ-আপ ব্লক হয়েছে। পপ-আপ অনুমতি দিয়ে আবার ক্লিক করুন।";
+
+document.getElementById(`progress-${index}`).classList.add("active");
+
+return;
+}
+
+state.running = true;
+state.startedAt = Date.now();
+
+document.getElementById(`progress-${index}`).classList.add("active");
+
+document.getElementById(`label-${index}`).textContent =
+"স্পন্সর পেজ খোলা হয়েছে। অপেক্ষা করুন...";
+
+button.innerHTML = "⏳ আনলক হচ্ছে...";
+button.disabled = true;
+
+let remaining = WAIT_SECONDS;
+
+document.getElementById(`count-${index}`).textContent =
+remaining + " সেকেন্ড";
+
+state.timer = window.setInterval(() => {
+
+const elapsed = Math.floor(
+(Date.now() - state.startedAt) / 1000
+);
+
+remaining = Math.max(0, WAIT_SECONDS - elapsed);
+
+document.getElementById(`count-${index}`).textContent =
+remaining + " সেকেন্ড";
+
+document.getElementById(`bar-${index}`).style.width =
+(elapsed / WAIT_SECONDS * 100) + "%";
+
+if(remaining <= 0){
+
+window.clearInterval(state.timer);
+
+state.running = false;
+state.unlocked = true;
+
+button.disabled = false;
+button.classList.remove("locked");
+button.classList.add("unlocked");
+
+button.innerHTML = "✓ এখনই গ্রুপে যোগ দিন";
+
+document.getElementById(`status-${index}`).textContent =
+"✓ আনলক হয়েছে";
+
+document.getElementById(`status-${index}`).style.color =
+"#86efac";
+
+document.getElementById(`label-${index}`).textContent =
+"সফল! এখন গ্রুপে যোগ দিন।";
+
+document.getElementById(`bar-${index}`).style.width = "100%";
+
+}
+
+},250);
+
+}
+
+</script>
+
+</body>
+</html>
